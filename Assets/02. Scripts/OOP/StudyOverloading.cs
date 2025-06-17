@@ -1,39 +1,29 @@
+using System;
 using UnityEngine;
-using UnityEngine.Timeline;
 
-// Player
 public class StudyOverloading : MonoBehaviour
 {
+    public GameObject characterPrefab;
+    private CharacterData data;
+
+    void Awake()
+    {
+        data = new CharacterData("플레이어1", 100f, 50f, 30); // 캐릭터 데이터
+        
+        data.Load();
+    }
     void Start()
     {
-        Attack();
-        Attack(true);
-        Attack(10f);
-
-        GameObject monsterObj = new GameObject("몬스터");
-        Attack(10, monsterObj);
-    }
-
-    public void Attack()
-    {
+        GameObject character = Instantiate(characterPrefab); // 캐릭터 오브젝트 생성
         
-    }
-    
-    public void Attack(bool isMagic)
-    {
-        if (isMagic)
-            Debug.Log("마법 공격");
-        else
-            Debug.Log("기본 공격");
+        character.GetComponent<Character>().name = data.name;
+        // character.GetComponent<Character>().hp = data.hp;
+        // character.GetComponent<Character>().mp = data.mp;
+        // character.GetComponent<Character>().level = data.level;
     }
 
-    public void Attack(float damage)
+    private void OnApplicationQuit()
     {
-        Debug.Log($"{damage} 데미지 만큼 공격");
-    }
-
-    public void Attack(float damage, GameObject target)
-    {
-        Debug.Log($"{target.name}에게 {damage} 데미지 만큼 공격");
+        data.Save();
     }
 }

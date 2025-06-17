@@ -5,7 +5,6 @@ public class Gun : MonoBehaviour, IDropItem
     public void Grab()
     {
         Debug.Log("총을 주웠다.");
-        Destroy(gameObject);
     }
 
     public void Use()
