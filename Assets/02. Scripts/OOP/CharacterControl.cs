@@ -3,12 +3,15 @@ using UnityEngine;
 
 public class CharacterControl : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 3f;
     private IDropItem currentItem;
+    
+    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private Transform grabPos;
 
     void Update()
     {
         Move();
+        Interaction();
     }
 
     private void Move()
@@ -23,6 +26,9 @@ public class CharacterControl : MonoBehaviour
 
     private void Interaction()
     {
+        if (currentItem == null)
+            return;
+        
         if (Input.GetMouseButtonDown(0))
         {
             currentItem.Use(); // 아이템 사용
@@ -31,6 +37,7 @@ public class CharacterControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             currentItem.Drop(); // 아이템 버리기
+            currentItem = null;
         }
     }
 
@@ -38,10 +45,9 @@ public class CharacterControl : MonoBehaviour
     {
         if (other.GetComponent<IDropItem>() != null)
         {
-            var item = other.GetComponent<IDropItem>();
-            currentItem = item;
+            currentItem = other.GetComponent<IDropItem>();
             
-            currentItem.Grab(); // 아이템 줍기
+            currentItem.Grab(grabPos); // 아이템 줍기
         }
     }
 }

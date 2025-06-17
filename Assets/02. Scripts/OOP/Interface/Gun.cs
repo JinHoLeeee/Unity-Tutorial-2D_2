@@ -2,18 +2,27 @@
 
 public class Gun : MonoBehaviour, IDropItem
 {
-    public void Grab()
+    public GameObject bulletPrefab;
+    public Transform shootPos;
+    
+    public void Grab(Transform grabPos)
     {
-        Debug.Log("총을 주웠다.");
+        transform.SetParent(grabPos);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
     }
 
     public void Use()
     {
-        Debug.Log("총을 발사한다.");
+        GameObject bullet = Instantiate(bulletPrefab, shootPos.position, Quaternion.identity);
+        Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+        
+        bulletRb.AddForce(shootPos.forward * 100f, ForceMode.Impulse);
     }
 
     public void Drop()
     {
-        Debug.Log("총을 버렸다.");
+        transform.SetParent(null);
+        transform.position = Vector3.zero;
     }
 }
