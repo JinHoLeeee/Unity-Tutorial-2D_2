@@ -3,6 +3,7 @@
 public class FlashLight : MonoBehaviour, IDropItem
 {
     public GameObject lightObj;
+    public bool isLight = false;
     
     public void Grab(Transform grabPos)
     {
@@ -13,7 +14,18 @@ public class FlashLight : MonoBehaviour, IDropItem
 
     public void Use()
     {
-        lightObj.SetActive(!lightObj.activeSelf);
+        if (isLight)
+        {
+            lightObj.SetActive(false);
+            isLight = !isLight;
+        }
+        else
+        {
+            lightObj.SetActive(true);
+            isLight = !isLight;
+        }
+        
+        // lightObj.SetActive(!lightObj.activeSelf);
     }
 
     public void Drop()
