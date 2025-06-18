@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7593837146889012892}
   - component: {fileID: 3992504044813005257}
   - component: {fileID: 8586285901908573526}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Flying Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54391672b33465d90a79e4ad0827ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
   hp: 3
   moveSpeed: 3
 --- !u!58 &8586285901908573526

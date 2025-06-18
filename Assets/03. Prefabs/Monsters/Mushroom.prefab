@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9072530265785941895}
   - component: {fileID: 5479899035358661833}
   - component: {fileID: 3642170474453982702}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9dfe961afa4876b67752e1d12b718a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
   hp: 3
   moveSpeed: 3
 --- !u!58 &3642170474453982702

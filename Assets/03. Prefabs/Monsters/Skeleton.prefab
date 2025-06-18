@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8313286353809145387}
   - component: {fileID: 4962483195638294215}
   - component: {fileID: 705586579683904629}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd55457a781d9e044a55cb2689eebc31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
   hp: 3
   moveSpeed: 3
 --- !u!58 &705586579683904629
