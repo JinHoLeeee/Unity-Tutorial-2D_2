@@ -12,12 +12,19 @@ public abstract class Monster : MonoBehaviour
     protected float moveSpeed = 3f;
 
     private int dir = 1;
+    public int Dir
+    {
+        get { return dir; }
+        set { dir = value; }
+    }
+    
+    
     private bool isMove = true;
     private bool isHit = false;
     
     public abstract void Init();
 
-    void Start()
+    void Awake()
     {
         spawner = FindFirstObjectByType<SpawnManager>();
         
@@ -48,15 +55,19 @@ public abstract class Monster : MonoBehaviour
         transform.position += Vector3.right * dir * moveSpeed * Time.deltaTime;
 
         if (transform.position.x > 8f)
-        {
             dir = -1;
-            sRenderer.flipX = true;
-        }
         else if (transform.position.x < -8f)
-        {
             dir = 1;
+        
+        SetFlip(dir);
+    }
+
+    public void SetFlip(int dir)
+    {
+        if (dir > 0)
             sRenderer.flipX = false;
-        }
+        else
+            sRenderer.flipX = true;
     }
 
     /// <summary>

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -19,7 +21,12 @@ public class SpawnManager : MonoBehaviour
 
             var createPos = new Vector3(randomX, randomY, 0);
             
-            Instantiate(monsters[randomIndex], createPos, Quaternion.identity);
+            GameObject monster = Instantiate(monsters[randomIndex], createPos, Quaternion.identity);
+
+            int ranDir = Random.Range(0, 2) > 0 ? 1 : -1;
+            
+            monster.GetComponent<Monster>().Dir = ranDir;
+            monster.GetComponent<Monster>().SetFlip(ranDir);
         }
     }
 
