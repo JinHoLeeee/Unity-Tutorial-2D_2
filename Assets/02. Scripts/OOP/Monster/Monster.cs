@@ -43,10 +43,7 @@ public abstract class Monster : MonoBehaviour
     {
         Move();
     }
-
-    /// <summary>
-    /// 몬스터가 오른쪽/왼쪽으로 이동하는 기능
-    /// </summary>
+    
     void Move()
     {
         if (!isMove)
@@ -69,13 +66,8 @@ public abstract class Monster : MonoBehaviour
         else
             sRenderer.flipX = true;
     }
-
-    /// <summary>
-    /// 몬스터가 공격 받았을 때 로직
-    /// </summary>
-    /// <param name="damage"></param>
-    /// <returns></returns>
-    IEnumerator Hit(float damage)
+    
+    public IEnumerator Hit(float damage)
     {
         if (isHit)
             yield break;

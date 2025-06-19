@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5426348491139023841}
   - component: {fileID: 7611042566419181698}
   - component: {fileID: 7290795127579972024}
+  - component: {fileID: 6728345235222401088}
   m_Layer: 10
   m_Name: Gold Coin
   m_TagString: Untagged
@@ -152,3 +153,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6728345235222401088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584295346903176407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20cfd87fbf1f44c3934603e7012177f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinType: 0

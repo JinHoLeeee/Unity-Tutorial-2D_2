@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] monsters;
+    
+    private List<Monster> monsterList = new List<Monster>();
     
     [SerializeField] private GameObject[] items;
     
@@ -21,7 +24,9 @@ public class SpawnManager : MonoBehaviour
 
             var createPos = new Vector3(randomX, randomY, 0);
             
-            GameObject monster = Instantiate(monsters[randomIndex], createPos, Quaternion.identity);
+            GameObject monster = Instantiate(monsters[randomIndex], createPos, Quaternion.identity); // 생성
+            
+            monsterList.Add(monster.GetComponent<Monster>());
 
             int ranDir = Random.Range(0, 2) > 0 ? 1 : -1;
             
@@ -40,7 +45,7 @@ public class SpawnManager : MonoBehaviour
         
         itemRb.AddForceX(Random.Range(-2f, 2f), ForceMode2D.Impulse);
         itemRb.AddForceY(3f, ForceMode2D.Impulse);
-
+        
         float ranPower = Random.Range(-1.5f, 1.5f);
         itemRb.AddTorque(ranPower, ForceMode2D.Impulse);
     }
