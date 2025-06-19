@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
         }
         else // Run 상태 -> 움직이는 상태 -> 어떠한 키 하나라도 누른 상태
         {
+            int scaleX = h > 0 ? 1 : -1;
+            transform.localScale = new Vector3(scaleX, 1, 1);
+            
             animator.SetBool("Run", true);
 
             var dir = new Vector3(h, v, 0).normalized;
@@ -63,6 +66,15 @@ public class PlayerController : MonoBehaviour
         {
             Monster monster = other.GetComponent<Monster>();
             StartCoroutine(monster.Hit(1));
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.GetComponent<IItem>() != null)
+        {
+            IItem item = other.gameObject.GetComponent<IItem>();
+            item.Get();
         }
     }
 }

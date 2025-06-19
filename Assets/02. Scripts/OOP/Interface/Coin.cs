@@ -28,7 +28,7 @@ public class Coin : MonoBehaviour, IItem
     {
         Debug.Log($"{this.name}을 획득했습니다.");
 
-        inventory.AddItem(this);
+        inventory.AddItem(this, transform);
         
         gameObject.SetActive(false);
     }

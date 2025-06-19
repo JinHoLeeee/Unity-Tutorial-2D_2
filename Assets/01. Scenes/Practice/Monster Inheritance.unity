@@ -757,6 +757,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 3520262740397766426, guid: 804c740e600921c4ebd2c074a3c068b8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3520262740397766426, guid: 804c740e600921c4ebd2c074a3c068b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242401658624501229, guid: 804c740e600921c4ebd2c074a3c068b8, type: 3}
+      propertyPath: m_LinearDamping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242401658624501229, guid: 804c740e600921c4ebd2c074a3c068b8, type: 3}
+      propertyPath: m_AngularDamping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781522051356948912, guid: 804c740e600921c4ebd2c074a3c068b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781522051356948912, guid: 804c740e600921c4ebd2c074a3c068b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781522051356948912, guid: 804c740e600921c4ebd2c074a3c068b8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6781522051356948912, guid: 804c740e600921c4ebd2c074a3c068b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
