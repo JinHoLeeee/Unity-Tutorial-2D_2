@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class KnightController_Keyboard : MonoBehaviour
@@ -21,6 +22,8 @@ public class KnightController_Keyboard : MonoBehaviour
     void Update() // 일반적인 작업
     {
         InputKeyboard();
+        Jump();
+        SetAnimation();
     }
 
     void FixedUpdate() // 물리적인 작업
@@ -51,9 +54,6 @@ public class KnightController_Keyboard : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         inputDir = new Vector3(h, v, 0);
-
-        Jump();
-        SetAnimation();
     }
 
     void Move()

@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class KnightController_Joystick : MonoBehaviour
@@ -46,6 +47,20 @@ public class KnightController_Joystick : MonoBehaviour
         }
     }
 
+    public void InputJoystick(float x, float y)
+    {
+        inputDir = new Vector3(x, y, 0);
+        
+        animator.SetFloat("JoystickX", x);
+        animator.SetFloat("JoystickY", y);
+
+        if (inputDir.x != 0)
+        {
+            var scaleX = inputDir.x > 0 ? 1 : -1;
+            transform.localScale = new Vector3(scaleX, 1, 1);
+        }
+    }
+
     void Move()
     {
         if (inputDir.x != 0)
@@ -59,18 +74,5 @@ public class KnightController_Joystick : MonoBehaviour
             animator.SetTrigger("Jump");
             knightRb.AddForceY(jumpPower, ForceMode2D.Impulse);
         }
-    }
-    
-    void SetAnimation() 
-    {
-        if (inputDir.x != 0)
-        {
-            var scaleX = inputDir.x > 0 ? 1 : -1;
-            transform.localScale = new Vector3(scaleX, 1, 1);
-            
-            animator.SetBool("isRun", true);
-        }
-        else if (inputDir.x == 0)
-            animator.SetBool("isRun", false);
     }
 }
