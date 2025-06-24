@@ -1,11 +1,13 @@
 using System;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KnightController_Joystick : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody2D knightRb;
+
+    [SerializeField] private Button jumpButton;
 
     private Vector3 inputDir;
     [SerializeField] private float moveSpeed = 3f;
@@ -17,6 +19,8 @@ public class KnightController_Joystick : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         knightRb = GetComponent<Rigidbody2D>();
+
+        jumpButton.onClick.AddListener(Jump);
     }
 
     void Update()
@@ -69,7 +73,7 @@ public class KnightController_Joystick : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGround)
+        if (isGround)
         {
             animator.SetTrigger("Jump");
             knightRb.AddForceY(jumpPower, ForceMode2D.Impulse);
