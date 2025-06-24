@@ -8,12 +8,15 @@ public class KnightController_Joystick : MonoBehaviour
     private Rigidbody2D knightRb;
 
     [SerializeField] private Button jumpButton;
+    [SerializeField] private Button atkButton;
 
     private Vector3 inputDir;
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float jumpPower = 13f;
 
-    private bool isGround;
+    private bool isGround = false;
+    private bool isAttack = false;
+    private bool isCombo = false;
 
     void Start()
     {
@@ -21,6 +24,7 @@ public class KnightController_Joystick : MonoBehaviour
         knightRb = GetComponent<Rigidbody2D>();
 
         jumpButton.onClick.AddListener(Jump);
+        atkButton.onClick.AddListener(Attack);
     }
 
     void Update()
@@ -77,6 +81,34 @@ public class KnightController_Joystick : MonoBehaviour
         {
             animator.SetTrigger("Jump");
             knightRb.AddForceY(jumpPower, ForceMode2D.Impulse);
+        }
+    }
+
+    void Attack()
+    {
+        if (!isAttack)
+        {
+            isAttack = true;
+            animator.SetTrigger("Attack");
+        }
+        else
+        {
+            isCombo = true;
+            Debug.Log("콤보 확인");
+        }
+    }
+
+    public void CheckCombo()
+    {
+        if (isCombo)
+        {
+            Debug.Log("콤보 실행");
+            animator.SetBool("isCombo", true);
+        }
+        else
+        {
+            animator.SetBool("isCombo", false);
+            isAttack = false;
         }
     }
 }
