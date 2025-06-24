@@ -36,6 +36,7 @@ public class JoystickController : MonoBehaviour, IPointerDownHandler, IDragHandl
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        knightController.InputJoystick(0, 0);
         handlerUI.transform.localPosition = Vector2.zero;
         backgroundUI.SetActive(false);
     }

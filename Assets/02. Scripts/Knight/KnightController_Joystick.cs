@@ -49,10 +49,10 @@ public class KnightController_Joystick : MonoBehaviour
 
     public void InputJoystick(float x, float y)
     {
-        inputDir = new Vector3(x, y, 0);
+        inputDir = new Vector3(x, y, 0).normalized;
         
-        animator.SetFloat("JoystickX", x);
-        animator.SetFloat("JoystickY", y);
+        animator.SetFloat("JoystickX", inputDir.x);
+        animator.SetFloat("JoystickY", inputDir.y);
 
         if (inputDir.x != 0)
         {
