@@ -13,9 +13,12 @@ using System;
      private Vector3 inputDir;
      [SerializeField] private float moveSpeed = 3f;
      [SerializeField] private float jumpPower = 13f;
+
+     private float atkDamage = 3f;
  
      private bool isGround = false;
      private bool isAttack = false;
+     private bool isCombo = false;
  
      void Start()
      {
@@ -25,12 +28,7 @@ using System;
          jumpButton.onClick.AddListener(Jump);
          atkButton.onClick.AddListener(Attack);
      }
- 
-     void Update()
-     {
-         
-     }
- 
+     
      void FixedUpdate()
      {
          Move();
@@ -53,7 +51,15 @@ using System;
              isGround = false;
          }
      }
- 
+
+     void OnTriggerEnter2D(Collider2D other)
+     {
+         if (other.CompareTag("Monster"))
+         {
+             Debug.Log($"{atkDamage}로 공격");
+         }
+     }
+
      public void InputJoystick(float x, float y)
      {
          inputDir = new Vector3(x, y, 0).normalized;
@@ -84,25 +90,34 @@ using System;
  
      void Attack()
      {
-         animator.SetBool("isCombo", false);
-         
          if (!isAttack)
          {
              isAttack = true;
+             atkDamage = 3f;
              animator.SetTrigger("Attack");
          }
          else
-             animator.SetBool("isCombo", true);
+             isCombo = true;
      }
- 
-     // public void CheckCombo()
-     // {
-     //     if (!animator.GetBool("isCombo"))
-     //         isAttack = false;
-     // }
- 
-     public void EndAttackCombo()
+
+     public void WaitCombo()
+     {
+         if (isCombo)
+         {
+             atkDamage = 5f;
+             animator.SetBool("isCombo", true);
+         }
+         else
+         {
+             isAttack = false;
+             animator.SetBool("isCombo", false);
+         }
+     }
+     
+     public void EndCombo()
      {
          isAttack = false;
+         isCombo = false;
+         animator.SetBool("isCombo", false);
      }
  }
