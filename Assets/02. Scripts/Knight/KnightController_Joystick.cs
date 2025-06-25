@@ -7,10 +7,10 @@ using System;
      private Animator animator;
      private Rigidbody2D knightRb;
  
+     private Vector3 inputDir;
      [SerializeField] private Button jumpButton;
      [SerializeField] private Button atkButton;
  
-     private Vector3 inputDir;
      [SerializeField] private float moveSpeed = 3f;
      [SerializeField] private float jumpPower = 13f;
 
