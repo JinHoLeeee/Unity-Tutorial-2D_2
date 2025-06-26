@@ -16,6 +16,7 @@ public class InteractionEvent : MonoBehaviour
 
     public Vector3 inDoorPos;
     public Vector3 outDoorPos;
+    public bool isHouse;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -53,12 +54,15 @@ public class InteractionEvent : MonoBehaviour
     {
         yield return StartCoroutine(fade.Fade(3f, Color.black, true));
 
-        player.transform.position = inDoorPos;
-        map.SetActive(false);
-        house.SetActive(true);
+        map.SetActive(isHouse);
+        house.SetActive(!isHouse);
+
+        var pos = isHouse ? outDoorPos : inDoorPos; 
+        player.transform.position = pos;
+        
+        isHouse = !isHouse;
         
         yield return new WaitForSeconds(1f);
-        
         yield return StartCoroutine(fade.Fade(3f, Color.black, false));
     }
 }

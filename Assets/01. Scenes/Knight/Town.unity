@@ -10925,10 +10925,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  popUp: {fileID: 0}
+  popUp: {fileID: 666299591}
   fade: {fileID: 1357148909}
   map: {fileID: 191898070}
   house: {fileID: 810371160}
+  inDoorPos: {x: 24.57, y: -0.29, z: 0}
+  outDoorPos: {x: 28.97, y: -9.59, z: 0}
+  isHouse: 0
 --- !u!61 &594891430
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11334,7 +11337,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 101
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -41402,7 +41405,7 @@ Transform:
   m_GameObject: {fileID: 1117404408}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.87, y: -9.27, z: 0}
+  m_LocalPosition: {x: -21.91, y: -2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -41421,7 +41424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1e89f1233cf694cb29419573f50633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.5
+  moveSpeed: 5
 --- !u!1 &1161410705
 GameObject:
   m_ObjectHideFlags: 0
@@ -49410,8 +49413,8 @@ Camera:
   m_GameObject: {fileID: 1503690323}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -49460,8 +49463,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503690323}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.1, y: 0.3, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.4, y: 0.38, z: -20.366331}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -51048,6 +51051,9 @@ MonoBehaviour:
   fade: {fileID: 0}
   map: {fileID: 0}
   house: {fileID: 0}
+  inDoorPos: {x: 0, y: 0, z: 0}
+  outDoorPos: {x: 0, y: 0, z: 0}
+  isHouse: 0
 --- !u!61 &1905347814
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51532,6 +51538,9 @@ MonoBehaviour:
   fade: {fileID: 0}
   map: {fileID: 0}
   house: {fileID: 0}
+  inDoorPos: {x: 0, y: 0, z: 0}
+  outDoorPos: {x: 0, y: 0, z: 0}
+  isHouse: 0
 --- !u!1 &2014979326
 GameObject:
   m_ObjectHideFlags: 0
@@ -53734,7 +53743,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 102
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
