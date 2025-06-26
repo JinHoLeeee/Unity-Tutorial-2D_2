@@ -19,7 +19,7 @@ public class TypingText : MonoBehaviour
 
         StartCoroutine(TypingRoutine());
     }
-
+    
     IEnumerator TypingRoutine()
     {
         int textCount = currText.Length;
