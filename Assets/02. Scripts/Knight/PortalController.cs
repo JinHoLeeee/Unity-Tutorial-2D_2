@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PortalController : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class PortalController : MonoBehaviour
     
     public GameObject portalEffect;
     public GameObject loadingImage;
+
+    public Image progressBar;
     
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,12 +28,14 @@ public class PortalController : MonoBehaviour
 
         loadingImage.SetActive(true);
         yield return StartCoroutine(fade.Fade(3f, Color.white, false)); // 페이드 오프
-        
 
-        // 씬 변경
+        while (progressBar.fillAmount < 1f)
+        {
+            progressBar.fillAmount += Time.deltaTime * 0.3f;
+            
+            yield return null;
+        }
 
-        // 페이드 오프
-
-
+        SceneManager.LoadScene(1);
     }
 }
